@@ -3,18 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3 en linea \(°o°)/</title>
+    <title>3 en línea \(°o°)/</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        #game {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            gap: 5px;
+            margin: 20px;
+        }
+        button {
+            font-size: 2em;
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Integrantes</h1>
+    <h2>Daniel López González</h2>
+    <ul>
+        <li>Matrícula: 230110443</li>
+        <li>Correo electrónico: 230110443@itsoeh.edu.mx</li>
+    </ul>
 
-<h1>Integrantes</h1>
+    <h2>Galilea Alonso Hernández</h2>
+    <ul>
+        <li>Matrícula: 230110012</li>
+        <li>Correo electrónico: 230110012@itsoeh.edu.mx</li>
+    </ul>
 
-<h2>Daniel López González</h2>
-<ul>
-  <li>Matriula: 230110443</li>
-  <li>Correo electrónico: 230110443@itsoeh.edu.mx</li>
-</ul>
+    <div id="game"></div>
+    <script>
+        // Inicialización del tablero y jugador actual
+        const gameBoard = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+        let currentPlayer = 'X';
 
-<h2>Galilea Alonso Hernández</h2>
-<ul>
-  <li>Matriula:230110 </li>
-  <li>Correo electrónico: @itsoeh.edu.mx</li>
-</ul>
+        const gameDiv = document.getElementById('game');
+
+        // Función para crear los botones del tablero
+        function createButtons() {
+            for (let i = 0; i < 9; i++) {
+                const button = document.createElement('button');
+                button.textContent = ' ';
+                button.addEventListener('click', () => makeMove(i, button));
+                gameDiv.appendChild(button);
+            }
+        }
+
+        // Función para manejar el movimiento del jugador
+        function makeMove(position, button) {
+            if (gameBoard[position] === ' ') {
+                gameBoard[position] = currentPlayer; // Marca el movimiento
+                button.textContent = currentPlayer; // Actualiza el botón
+                const winner = checkWinner(); // Verifica si hay un ganador
+                if (winner) {
+                    alert(`¡El jugador ${winner} ha ganado!`);
+                    resetGame(); // Reinicia el juego
+                } else if (!gameBoard.includes(' ')) {
+                    alert('¡Es un empate!'); // Verifica empate
+                    resetGame(); // Reinicia el juego
+                } else {
+                    // Cambia al siguiente jugador
+                    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                }
+            }
+        }
+
+        // Función para verificar si hay un ganador
+        function checkWinner() {
+            const combos = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8],
+                [0, 3, 6], [1, 4, 7], [2, 5, 8],
+                [0, 4, 8], [2, 4, 6]
+            ];
+            for (const [a, b, c] of combos) {
+                if (gameBoard[a] === gameBoard[b] && gameBoard[b] === gameBoard[c] && gameBoard[a] !== ' ') {
+                    return gameBoard[a]; // Retorna el jugador ganador
+                }
+            }
+            return null; // Sin ganador
+        }
+
+        // Función para reiniciar el juego
+        function resetGame() {
+            gameBoard.fill(' '); // Reinicia el tablero
+            currentPlayer = 'X'; // Reinicia el jugador
+            const buttons = gameDiv.getElementsByTagName('button');
+            for (const button of buttons) {
+                button.textContent = ' '; // Limpia el texto de los botones
+            }
+        }
+
+        // Crea los botones al cargar la página
+        createButtons();
+    </script>
+</body>
+</html>
