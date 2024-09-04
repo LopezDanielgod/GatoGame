@@ -27,6 +27,11 @@
             height: 100px;
             cursor: pointer;
         }
+        #documentation {
+            max-width: 600px;
+            margin: 20px;
+            text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -44,14 +49,29 @@
     </ul>
 
     <div id="game"></div>
+
+    <div id="documentation">
+        <h2>Documentación del Código</h2>
+        <p>Este programa implementa un juego del gato (Tic-Tac-Toe) para dos jugadores, donde se alternan turnos para marcar espacios en un tablero de 3x3.</p>
+
+        <h3>Funciones Principales</h3>
+        <ul>
+            <li><strong>createButtons()</strong>: Crea los botones para el tablero y los añade al DOM.</li>
+            <li><strong>makeMove(position, button)</strong>: Maneja el movimiento del jugador actual, actualiza el tablero y verifica si hay un ganador o empate.</li>
+            <li><strong>checkWinner()</strong>: Comprueba todas las combinaciones ganadoras posibles. Devuelve el jugador ganador o null si no hay ganador.</li>
+            <li><strong>resetGame()</strong>: Reinicia el tablero y restablece el jugador actual.</li>
+        </ul>
+
+        <h3>Cómo Jugar</h3>
+        <p>Haz clic en los botones del tablero para marcar tu jugada. El juego alterna entre los jugadores 'X' y 'O'. Gana quien logre alinear tres de sus marcas.</p>
+    </div>
+
     <script>
-        // Inicialización del tablero y jugador actual
         const gameBoard = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
         let currentPlayer = 'X';
 
         const gameDiv = document.getElementById('game');
 
-        // Función para crear los botones del tablero
         function createButtons() {
             for (let i = 0; i < 9; i++) {
                 const button = document.createElement('button');
@@ -61,26 +81,23 @@
             }
         }
 
-        // Función para manejar el movimiento del jugador
         function makeMove(position, button) {
             if (gameBoard[position] === ' ') {
-                gameBoard[position] = currentPlayer; // Marca el movimiento
-                button.textContent = currentPlayer; // Actualiza el botón
-                const winner = checkWinner(); // Verifica si hay un ganador
+                gameBoard[position] = currentPlayer;
+                button.textContent = currentPlayer;
+                const winner = checkWinner();
                 if (winner) {
                     alert(`¡El jugador ${winner} ha ganado!`);
-                    resetGame(); // Reinicia el juego
+                    resetGame();
                 } else if (!gameBoard.includes(' ')) {
-                    alert('¡Es un empate!'); // Verifica empate
-                    resetGame(); // Reinicia el juego
+                    alert('¡Es un empate!');
+                    resetGame();
                 } else {
-                    // Cambia al siguiente jugador
                     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
                 }
             }
         }
 
-        // Función para verificar si hay un ganador
         function checkWinner() {
             const combos = [
                 [0, 1, 2], [3, 4, 5], [6, 7, 8],
@@ -89,23 +106,21 @@
             ];
             for (const [a, b, c] of combos) {
                 if (gameBoard[a] === gameBoard[b] && gameBoard[b] === gameBoard[c] && gameBoard[a] !== ' ') {
-                    return gameBoard[a]; // Retorna el jugador ganador
+                    return gameBoard[a];
                 }
             }
-            return null; // Sin ganador
+            return null;
         }
 
-        // Función para reiniciar el juego
         function resetGame() {
-            gameBoard.fill(' '); // Reinicia el tablero
-            currentPlayer = 'X'; // Reinicia el jugador
+            gameBoard.fill(' ');
+            currentPlayer = 'X';
             const buttons = gameDiv.getElementsByTagName('button');
             for (const button of buttons) {
-                button.textContent = ' '; // Limpia el texto de los botones
+                button.textContent = ' ';
             }
         }
 
-        // Crea los botones al cargar la página
         createButtons();
     </script>
 </body>
