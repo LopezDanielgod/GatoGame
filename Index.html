@@ -80,7 +80,7 @@
         <p>En este código se implementa el juego del gato utilizando métodos que cumplen las funciones correctamente.</p>
 
         <h2>Diagrama UML</h2> 
-        <img src="nuevaimg.jpeg">
+        <img src="Img1.png">
  
         <h2>Estructura</h2>
         <p>El juego está organizado dentro de una clase llamada <strong>Gato</strong>. La clase contiene métodos para crear el tablero, manejar las jugadas, verificar si hay un ganador, empate o perdedor y reiniciar el juego cuando termine una partida.</p>
@@ -88,10 +88,9 @@
         <h2>Métodos del Programa</h2>
         <ul>
             <li><strong>__init__(self, raiz)</strong>: Constructor de la clase que inicializa los elementos principales del juego.</li>
-            <li><strong>crear_botones(self)</strong>: Crea los botones en la interfaz gráfica de usuario (GUI).</li>
-            <li><strong>realizar_jugada(self, posicion)</strong>: Ejecuta cada vez que un jugador hace una jugada.</li>
+            <li><strong>jugar(self, pos)</strong>: Ejecuta cada vez que un jugador hace una jugada.</li>
             <li><strong>verificar_ganador(self)</strong>: Revisa si alguno de los jugadores ha ganado.</li>
-            <li><strong>reiniciar_juego(self)</strong>: Reinicia el juego, limpiando el tablero.</li>
+            <li><strong>reiniciar(self)</strong>: Reinicia el juego, limpiando el tablero.</li>
         </ul>
 
         <h2>Cómo se Juega</h2>
@@ -100,9 +99,9 @@
         <h2>Funciones</h2>
         <p>Las funciones clave del juego son:</p>
         <ul>
-            <li><strong>realizar_jugada</strong>: Controla el flujo principal del juego.</li>
+            <li><strong>jugar</strong>: Controla el flujo principal del juego.</li>
             <li><strong>verificar_ganador</strong>: Revisa las combinaciones ganadoras.</li>
-            <li><strong>reiniciar_juego</strong>: Restablece el tablero y los turnos.</li>
+            <li><strong>reiniciar</strong>: Restablece el tablero y los turnos.</li>
         </ul>
 
         <h2>Interfaz</h2> 
