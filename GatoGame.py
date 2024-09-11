@@ -4,7 +4,7 @@ from tkinter import messagebox, ttk
 class Gato:
     def __init__(self, raiz):
         self.raiz = raiz
-        self.raiz.title("EL GATO")
+        self.raiz.title("Juego del Gato")
         self.tablero, self.jugador_actual = [' '] * 9, 'X'
         self.botones = [ttk.Button(raiz, text=' ', command=lambda i=i: self.jugar(i), width=10) for i in range(9)]
         for i, boton in enumerate(self.botones): boton.grid(row=i // 3, column=i % 3)
