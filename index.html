@@ -85,12 +85,20 @@
         <h2>Estructura</h2>
         <p>El juego está organizado dentro de una clase llamada <strong>Gato</strong>. La clase contiene métodos para crear el tablero, manejar las jugadas, verificar si hay un ganador, empate o perdedor y reiniciar el juego cuando termine una partida.</p>
 
-        <h2>Métodos del Programa</h2>
+        <h2>Análisis del Código Python para el Juego del Gato</h2>
+        <p><strong>Importaciones:</strong></p>
         <ul>
-            <li><strong>__init__(self, raiz)</strong>: Constructor de la clase que inicializa los elementos principales del juego.</li>
-            <li><strong>jugar(self, pos)</strong>: Ejecuta cada vez que un jugador hace una jugada.</li>
-            <li><strong>verificar_ganador(self)</strong>: Revisa si alguno de los jugadores ha ganado.</li>
-            <li><strong>reiniciar(self)</strong>: Reinicia el juego, limpiando el tablero.</li>
+            <li><strong>from tkinter import *</strong>: Importa todas las clases y funciones de la biblioteca Tkinter, la cual se utiliza para crear interfaces gráficas en Python.</li>
+            <li><strong>from tkinter import messagebox, ttk</strong>: Importa específicamente la clase messagebox para mostrar mensajes de diálogo y la clase ttk para utilizar widgets temáticos.</li>
+        </ul>
+
+        <p><strong>Clase Gato:</strong> Esta es la clase principal que encapsula toda la lógica del juego.</p>
+
+        <ul>
+            <li><strong>_init_(self):</strong> Inicializa la ventana principal (self.raiz) y le asigna un título. Crea un tablero representado por una lista de 9 espacios vacíos ([' '] * 9) y establece el jugador inicial como 'X'. Además, crea una lista de botones de Tkinter, uno por cada casilla del tablero, y coloca los botones en una cuadrícula en la ventana principal.</li>
+            <li><strong>jugar(self, pos):</strong> Verifica si la casilla seleccionada está vacía y si lo está, actualiza el tablero y el botón con el símbolo del jugador actual. También verifica si hay un ganador o empate y cambia el turno al siguiente jugador.</li>
+            <li><strong>verificar_ganador(self):</strong> Utiliza una expresión generadora para revisar todas las combinaciones ganadoras (filas, columnas, diagonales). Devuelve el símbolo del ganador si hay una coincidencia o None si no la hay.</li>
+            <li><strong>reiniciar(self):</strong> Restablece el tablero y los botones a su estado inicial.</li>
         </ul>
 
         <h2>Cómo se Juega</h2>
@@ -106,5 +114,11 @@
 
         <h2>Interfaz</h2> 
         <img src="img.png">
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Juego del Gato</p>
+    </footer>
+
 </body>
 </html>
