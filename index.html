@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego del Gato</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        ul {
+            margin-left: 20px;
+            list-style-type: disc;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #2c3e50;
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .interfaz {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px dashed #2c3e50;
+            background: #e8f4fa;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Juego del Gato</h1>
+    </header>
+
+    <div class="container">
+        <h2>Introducción</h2>
+        <p>En este código se implementa el juego del gato utilizando métodos que cumplen las funciones correctamente.</p>
+
+        <h2>Diagrama UML</h2> 
+        <img src="Img1.png">
+ 
+        <h2>Estructura</h2>
+        <p>El juego está organizado dentro de una clase llamada <strong>Gato</strong>. La clase contiene métodos para crear el tablero, manejar las jugadas, verificar si hay un ganador, empate o perdedor y reiniciar el juego cuando termine una partida.</p>
+
+        <h2>Métodos del Programa</h2>
+        <ul>
+            <li><strong>__init__(self, raiz)</strong>: Constructor de la clase que inicializa los elementos principales del juego.</li>
+            <li><strong>jugar(self, pos)</strong>: Ejecuta cada vez que un jugador hace una jugada.</li>
+            <li><strong>verificar_ganador(self)</strong>: Revisa si alguno de los jugadores ha ganado.</li>
+            <li><strong>reiniciar(self)</strong>: Reinicia el juego, limpiando el tablero.</li>
+        </ul>
+
+        <h2>Cómo se Juega</h2>
+        <p>El juego se inicia al ejecutar el programa, mostrando una cuadrícula de 3x3 de botones. Los jugadores alternan turnos hasta que uno de ellos coloque tres símbolos iguales en una línea, o hasta que todas las casillas se llenen, resultando en un empate.</p>
+        
+        <h2>Funciones</h2>
+        <p>Las funciones clave del juego son:</p>
+        <ul>
+            <li><strong>jugar</strong>: Controla el flujo principal del juego.</li>
+            <li><strong>verificar_ganador</strong>: Revisa las combinaciones ganadoras.</li>
+            <li><strong>reiniciar</strong>: Restablece el tablero y los turnos.</li>
+        </ul>
+
+        <h2>Interfaz</h2> 
+        <img src="img.png">
+</body>
+</html>
