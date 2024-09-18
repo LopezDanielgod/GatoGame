@@ -80,44 +80,34 @@
         <p>En este código se implementa el juego del gato utilizando métodos que cumplen las funciones correctamente.</p>
 
         <h2>Diagrama UML</h2> 
-        <img src="Img1.png">
- 
-        <h2>Estructura</h2>
-        <p>El juego está organizado dentro de una clase llamada <strong>Gato</strong>. La clase contiene métodos para crear el tablero, manejar las jugadas, verificar si hay un ganador, empate o perdedor y reiniciar el juego cuando termine una partida.</p>
+        <img src="Diagrama1.jpg" alt="Diagrama UML del juego del gato">
 
-        <h2></h2>
-        <p><strong>Importaciones:</strong></p>
+        <h2>Métodos y Tipos de Datos</h2>
+        <p>A continuación se describen los métodos del programa junto con los tipos de datos que manejan y sus funciones.</p>
         <ul>
-            <li><strong>from tkinter import *</strong>: Importa todas las clases y funciones de la biblioteca Tkinter, la cual se utiliza para crear interfaces gráficas en Python.</li>
-            <li><strong>from tkinter import messagebox, ttk</strong>: Importa específicamente la clase messagebox para mostrar mensajes de diálogo y la clase ttk para utilizar widgets temáticos.</li>
+            <li><strong>_init_(self, raiz)</strong>: Constructor de la clase. Inicializa los elementos del juego. <br> Tipo de dato de <strong>raiz</strong>: <code>Tk</code>.</li>
+            <li><strong>jugar(self, pos)</strong>: Controla la jugada de un jugador en la posición dada. <br> Tipo de dato de <strong>pos</strong>: <code>int</code>.</li>
+            <li><strong>verificar_ganador(self)</strong>: Verifica si algún jugador ha ganado la partida. <br> Retorna: <code>str</code> o <code>None</code>.</li>
+            <li><strong>reiniciar(self)</strong>: Reinicia el tablero del juego. No recibe ni retorna valores.</li>
         </ul>
 
-        <p><strong>Clase Gato:</strong> Esta es la clase principal que encapsula toda la lógica del juego.</p>
-
+        <h2>Atributos de la Clase Gato</h2>
         <ul>
-            <li><strong>_init_(self):</strong> Inicializa la ventana principal (self.raiz) y le asigna un título. Crea un tablero representado por una lista de 9 espacios vacíos ([' '] * 9) y establece el jugador inicial como 'X'. Además, crea una lista de botones de Tkinter, uno por cada casilla del tablero, y coloca los botones en una cuadrícula en la ventana principal.</li>
-            <li><strong>jugar(self, pos):</strong> Verifica si la casilla seleccionada está vacía y si lo está, actualiza el tablero y el botón con el símbolo del jugador actual. También verifica si hay un ganador o empate y cambia el turno al siguiente jugador.</li>
-            <li><strong>verificar_ganador(self):</strong> Utiliza una expresión generadora para revisar todas las combinaciones ganadoras (filas, columnas, diagonales). Devuelve el símbolo del ganador si hay una coincidencia o None si no la hay.</li>
-            <li><strong>reiniciar(self):</strong> Restablece el tablero y los botones a su estado inicial.</li>
+            <li><strong>raiz</strong>: Ventana principal del juego. <br> Tipo de dato: <code>Tk</code>.</li>
+            <li><strong>tablero</strong>: Lista que representa las posiciones del tablero. <br> Tipo de dato: <code>list[str]</code>.</li>
+            <li><strong>jugador_actual</strong>: Variable que guarda el jugador actual ('O' o 'X'). <br> Tipo de dato: <code>str</code>.</li>
+            <li><strong>botones</strong>: Lista de botones que conforman el tablero visual. <br> Tipo de dato: <code>list[Button]</code>.</li>
         </ul>
 
-        <h2>Función del juego</h2>
+        <h2>Cómo se Juega</h2>
         <p>El juego se inicia al ejecutar el programa, mostrando una cuadrícula de 3x3 de botones. Los jugadores alternan turnos hasta que uno de ellos coloque tres símbolos iguales en una línea, o hasta que todas las casillas se llenen, resultando en un empate.</p>
         
-        <h2>Funciones</h2>
-        <p>Las funciones clave del juego son:</p>
-        <ul>
-            <li><strong>jugar</strong>: Controla el flujo principal del juego.</li>
-            <li><strong>verificar_ganador</strong>: Revisa las combinaciones ganadoras.</li>
-            <li><strong>reiniciar</strong>: Restablece el tablero y los turnos.</li>
-        </ul>
-
         <h2>Interfaz</h2> 
-        <img src="img.png">
+        <img src="img.png" alt="Interfaz del juego del gato">
     </div>
 
     <footer>
-        <p>&copy; 2024 Juego del Gato</p>
+        <p>&copy; 2024 Juego del Gato. Todos los derechos reservados.</p>
     </footer>
 
 </body>
